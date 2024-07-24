@@ -31,9 +31,9 @@ body {
   }
 
   a:hover {
-    border-bottom: solid;
+    border-bottom: solid goldenrod;
     padding-bottom: 5px;
-    /* color: goldenrod; */
+
   }
 
   ul, li {
