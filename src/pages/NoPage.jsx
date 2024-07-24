@@ -1,5 +1,13 @@
+import '../pages/NoPage.css';
+
 const NoPage = () => {
-    return <h1>404</h1>
+    return (
+        <div className="nopagediv">
+            <h1 className='nopageh1'>404 Page Not Found</h1>
+            <h1 className='nopageh1'>404 Page Not Found</h1>
+            <h1 className='nopageh1'>404 Page Not Found</h1>
+        </div>
+    )
 };
 
 export default NoPage;
