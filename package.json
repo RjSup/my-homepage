@@ -43,6 +43,5 @@
   "devDependencies": {
     "gh-pages": "^6.1.1",
     "react-router-dom": "^6.25.1"
-  },
-  "homepage": "https://rjsup.github.github.io/my-homepage/src/pages/Layout.jsx"
+  }
 }
