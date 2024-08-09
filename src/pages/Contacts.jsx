@@ -34,14 +34,12 @@ const Contact = () => {
             <h1>Contact Me</h1>
             <div>
                 <form onSubmit={onSubmit}>
-                    <input type="hidden" name="access_key" value="acc6292c-a3a4-4eb3-97f4-4001fe1dfdc0"></input>    
                     <label for="name">Name: </label>
                     <input type="text" name="name" required/>
                     <label for="email">Email: </label>
                     <input type="email" name="email" required/>
                     <label for="message">Message: </label>
                     <textarea name="message" rows={4} cols={200} required></textarea>
-
                     <button type="submit">Submit Form</button>
                 </form>
                 <span>{result}</span>

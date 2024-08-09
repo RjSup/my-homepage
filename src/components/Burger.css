@@ -1,0 +1,59 @@
+/* Burger Menu Icon Styles */
+.burger {
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    z-index: 1000; /* Ensure it stays on top of other content */
+  }
+  
+  @media (min-width: 1024px) {
+    .burger {
+      display: none; /* Hide the burger menu on larger screens */
+    }
+  }
+  
+  /* Burger Menu Overlay Styles */
+  .burger-menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #224071; /* Match this color to the website background */
+    z-index: 999; /* Slightly lower than the burger icon */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow-y: hidden; /* Prevent scrolling */
+  }
+  
+  .burgerul {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 1em;
+    text-align: center;
+  }
+  
+  .burgerul .burgerli {
+    font-size: 2em;
+    padding-bottom: 1em;
+    color: white; /* Ensure visibility on dark background */
+  }
+  
+  .burgerul:hover .burgerli:hover {
+    transform: scale(1.2);
+    color: goldenrod;
+  }
+  
+  /* Remove default link styles inside the burger menu */
+  .burgerul .burgerli a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  .burgerul .burgerli a.active {
+    background-color: goldenrod;
+    border-radius: 5px;
+    padding: 0.5em;
+  }
+  
