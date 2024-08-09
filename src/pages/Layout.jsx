@@ -1,39 +1,12 @@
-// Layout.js
-import '../pages/Layout.css';
-import { useEffect } from "react";
-import { Outlet, Link } from "react-router-dom";
+import React from 'react';
+import { Outlet, Link, useLocation } from 'react-router-dom';
+import Burger from '../components/Burger';
 import Footer from '../components/Footer';
-import BurgerMenu from '../components/Burger';
+import '../pages/Layout.css';
 
 const Layout = () => {
-  useEffect(() => {
-    const navLinks = document.querySelectorAll('.nav ul li a');
-
-    function setActiveLink(href) {
-      navLinks.forEach(link => {
-        if (link.getAttribute('href') === href) {
-          link.classList.add('active');
-        } else {
-          link.classList.remove('active');
-        }
-      });
-    }
-
-    function handleLinkClick(event) {
-      const href = event.target.getAttribute('href');
-      setActiveLink(href);
-    }
-
-    navLinks.forEach(link => link.addEventListener('click', handleLinkClick));
-
-    // Set the initial active link based on the current URL
-    const currentPath = window.location.pathname;
-    setActiveLink(currentPath);
-
-    return () => {
-      navLinks.forEach(link => link.removeEventListener('click', handleLinkClick));
-    };
-  }, []);
+  const location = useLocation();
+  const currentPath = location.pathname;
 
   const routes = [
     { title: "Home", href: "/" },
@@ -48,18 +21,20 @@ const Layout = () => {
           <ul>
             {routes.map((route) => (
               <li key={route.title}>
-                <Link to={route.href}>{route.title}</Link>
+                <Link to={route.href} className={route.href === currentPath ? 'active' : ''}>
+                  {route.title}
+                </Link>
               </li>
             ))}
           </ul>
         </nav>
       </div>
 
-      <BurgerMenu routes={routes} />
+      <Burger routes={routes} currentPath={currentPath} />
 
       <Outlet />
 
-      <Footer/>
+      <Footer />
     </div>
   );
 };

@@ -3,43 +3,13 @@ import { Link } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Squash as Hamburger } from 'hamburger-react';
 import { useClickAway } from 'react-use';
-import '../components/Burger.css'; // Import the relevant CSS file
+import '../components/Burger.css';
 
-const BurgerMenu = ({ routes }) => {
+const BurgerMenu = ({ routes, currentPath }) => {
   const [isOpen, setOpen] = useState(false);
   const ref = useRef(null);
 
   useClickAway(ref, () => setOpen(false));
-
-  useEffect(() => {
-    const burgerLinks = document.querySelectorAll('.burgerul li a');
-
-    function setActiveLink(links, href) {
-      links.forEach(link => {
-        if (link.getAttribute('href') === href) {
-          link.classList.add('active');
-        } else {
-          link.classList.remove('active');
-        }
-      });
-    }
-
-    function handleLinkClick(event) {
-      const href = event.target.getAttribute('href');
-      setActiveLink(burgerLinks, href);
-      setOpen(false); // Close the burger menu after selection
-    }
-
-    burgerLinks.forEach(link => link.addEventListener('click', handleLinkClick));
-
-    // Set the initial active link based on the current URL
-    const currentPath = window.location.pathname;
-    setActiveLink(burgerLinks, currentPath);
-
-    return () => {
-      burgerLinks.forEach(link => link.removeEventListener('click', handleLinkClick));
-    };
-  }, []);
 
   return (
     <div className="burger" ref={ref}>
@@ -69,7 +39,8 @@ const BurgerMenu = ({ routes }) => {
                   <li className="burgerli">
                     <Link
                       to={route.href}
-                      onClick={() => setOpen(false)} // Close the menu when clicking a link
+                      onClick={() => setOpen(false)}
+                      className={route.href === currentPath ? 'active' : ''}
                     >
                       {route.title}
                     </Link>

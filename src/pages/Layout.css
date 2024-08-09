@@ -31,9 +31,10 @@ a {
 }
 
 /* Navigation Bar Styles */
-.nav ul {
-  display: flex;
-  list-style: none;
+.nav ul li a {
+  text-decoration: none;
+  padding: 4px 10px;
+  color: black;
 }
 
 .nav ul li {
